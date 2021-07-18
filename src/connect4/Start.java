@@ -15,11 +15,13 @@ public class Start {
                 "③先に自分の球を縦・横・斜めいずれかの方向に４つ並べれば勝利です。\n");
     }
 
+    //盤面の初期化をするメソッドを作る...?
+
     public boolean decideturn(){
         System.out.println("先攻を決めてください。（プレイヤーが先攻なら1、後攻なら2を入力）");
         Scanner scanner = new Scanner(System.in);
-        int turn = scanner.nextInt();
-        if (turn==1){
+        int flag = scanner.nextInt();
+        if (flag==1){
             return true;
         } else {
             return false;
