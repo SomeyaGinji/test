@@ -21,7 +21,7 @@ public class Player {
                 break;
             }
         }*/
-        return scanner.nextInt();
+        return scanner.nextInt()-1;
     }
 
 }

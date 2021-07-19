@@ -8,6 +8,7 @@ public class Judge {
 
     public boolean judge(){
 
+
         // まだ決着がつかないとき
         return false;
     }

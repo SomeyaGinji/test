@@ -9,26 +9,26 @@ public class Output {
     void output(int array[][]){
         int i,j;
         for(j=0;j<7;j++) {
-            System.out.println(" " + (j + 1));
+            System.out.print(" " + (j + 1));
         }
-        System.out.println(" \n");
+        System.out.print(" \n");
         for(i=0;i<6;i++){
             for(j=0;j<7;j++){
                 if (array[i][j]==0){
-                    System.out.println("|●");
+                    System.out.print("|●");
                 }
                 else if(array[i][j]==1){
-                    System.out.println("|◯");
+                    System.out.print("|◯");
                 }
                 else{
-                    System.out.println("| ");
+                    System.out.print("| ");
                 }
             }
-            System.out.println("|\n");
+            System.out.print("|\n");
         }
         for(j=0;j<7;j++){
-            System.out.println("__");
+            System.out.print("--");
         }
-        System.out.println("_\n");
+        System.out.print("-\n");
     }
 }

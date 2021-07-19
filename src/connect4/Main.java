@@ -21,8 +21,12 @@ public class Main {
         }
         if (start.decideturn()){ //プレイヤー先攻のとき
             //プレイヤーの番
+            output.output(array);
             j = player.select(array);
-            array[0][j] = 0;
+            if (j == -1){
+                return;
+            }
+            array[5][j] = 0;
             //盤面評価のクラスがここに入る
             output.output(array);
         }
@@ -30,7 +34,7 @@ public class Main {
         while(true) { //4つ並ぶ、またはいっぱいになるまで繰り返し
             //コンピュータの番
             j = computer.select();
-            for(i=0;i<6;i++){
+            for(i=5;i>-1;i--){
                 if (array[i][j]==-1){ //空のとき
                     break;
                 }
@@ -48,7 +52,8 @@ public class Main {
             }
             //プレイヤーの番
             j = player.select(array);
-            for(i=0;i<6;i++){
+            if(j == -1){break;}
+            for(i=5;i>-1;i--){
                 if (array[i][j]==-1){ //空のとき
                     break;
                 }
