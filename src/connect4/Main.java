@@ -42,7 +42,7 @@ public class Main {
             array[i][j] = 1; //そこに◯を入れる
             //盤面評価のクラスがここに入る
             output.output(array);
-            if (judge.judge()) { //コンピュータ勝利時
+            if (judge.judge(array)) { //コンピュータ勝利時
                 System.out.println("コンピュータの勝利です。");
                 break;
             }
@@ -61,7 +61,7 @@ public class Main {
             array[i][j] = 0; //そこに●を入れる
             //盤面評価のクラスがここに入る
             output.output(array);
-            if (judge.judge()) { //プレイヤー勝利時
+            if (judge.judge(array)) { //プレイヤー勝利時
                 System.out.println("プレイヤーの勝利です。");
                 break;
             }
