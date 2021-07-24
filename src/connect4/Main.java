@@ -8,6 +8,7 @@ public class Main {
         Computer computer = new Computer();
         Output output = new Output();
         Judge judge = new Judge();
+        Status status = new Status();
 
         int i,j;
         int turn = 0;
@@ -16,9 +17,10 @@ public class Main {
         start.gamestart();
         for(i=0;i<6;i++){
             for(j=0;j<7;j++){
-                array[i][j] = -1; //-1は空の状態、0はを表す
+                array[i][j] = -1; //-1は空の状態、0はプレイヤー球●、1はコンピュータ球◯を表す
             }
         }
+
         if (start.decideturn()){ //プレイヤー先攻のとき
             //プレイヤーの番
             output.output(array);

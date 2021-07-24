@@ -45,7 +45,6 @@ public class Judge {
             }
         }
 
-
         // まだ決着がつかないとき
         return false;
     }

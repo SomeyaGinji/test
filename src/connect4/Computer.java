@@ -5,7 +5,6 @@ import java.util.Random;
 public class Computer {
 
     Random random = new Random();
-    //int randomj = random.nextInt(7); //0~6の7つの乱数
 
     Computer(){
 
