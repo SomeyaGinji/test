@@ -6,7 +6,7 @@ public class Output {
 
     }
 
-    void output(int array[][]){
+    void output(int array[][],int score){
         int i,j;
         for(j=0;j<7;j++) {
             System.out.print(" " + (j + 1));
@@ -30,5 +30,14 @@ public class Output {
             System.out.print("--");
         }
         System.out.print("-\n");
+
+        System.out.println("プレイヤーの優勢度: "+score+"\n");
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }
