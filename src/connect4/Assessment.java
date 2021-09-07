@@ -4,6 +4,7 @@ public class Assessment {
 
     int score;
     int[][] valuearray = new int[6][7];
+    int theoryscore;
 
     Assessment(){
         this.score=0; //盤面評価の点数
@@ -30,12 +31,67 @@ public class Assessment {
     }
 
     int calcscore(int i,int j,int array[][],int score){
+        theoryscore = 0;
+        try {
+            if (array[i][j] == array[i-1][j-1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i-2][j-2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i-1][j]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i-2][j]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i-1][j+1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i-2][j+2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i][j-1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i][j-2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i][j+1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i][j+2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i+1][j-1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i+2][j-2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i+1][j]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i+2][j]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+            if (array[i][j] == array[i+1][j+1]){
+                theoryscore = theoryscore + 2;
+                if (array[i][j] == array[i+2][j+2]){
+                    theoryscore = theoryscore + 3;
+                }
+            }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+
+
 
         if (array[i][j]==0) {
-            score = score + valuearray[i][j];
+            score = score + valuearray[i][j] + theoryscore;
         }
         else if (array[i][j]==1){
-            score = score - valuearray[i][j];
+            score = score - valuearray[i][j] - theoryscore;
         }
         return score;
 
