@@ -5,17 +5,48 @@ import java.util.Random;
 public class Computer {
 
     Random random = new Random();
+    int[][] ascore = new int[10][7]; //10はdepth
 
     Computer(){
 
     }
 
-    int select(int array[][]){
+    int select(int array[][],int score){
         int i,j,decidej;
         Assessment assessment = new Assessment();
 
+
+        decidej = random.nextInt(7); //0~6の7つの乱数
+
         //探索アルゴリズムが下に続く
         //盤面評価のクラスかメソッドが入るかも
+        for (j=0;j<=6;j++){
+            i=5;
+            while (i>=0){
+                if (array[i][j]==-1){
+                    array[i][j]=1;
+                    break;
+                }
+                i--;
+                if (i==-1){
+
+                    break;
+                }
+            }
+
+            ascore[1][j] = assessment.calcscore(i,j,array,score);
+            System.out.println(ascore[1][j]);
+
+            array[i][j]=-1;
+        }
+
+        int minscore = ascore[1][0];
+        for (j=0;j<=6;j++){
+            if (ascore[1][j]<minscore){
+                minscore = ascore[1][j];
+                decidej = j;
+            }
+        }
 
         //どの手が最善か決める
         /*int max = assessment.valuearray[0][0];
@@ -27,7 +58,7 @@ public class Computer {
             }
         }*/
 
-        decidej = random.nextInt(7); //0~6の7つの乱数
+
 
         // プレイヤーがリーチなら阻止する手を打つ
         int m,n,count;
@@ -125,10 +156,9 @@ public class Computer {
                     }
                 }
 
+                //自分(コンピュータ)がリーチなら勝負を決める
                 if (array[m][n]==-1) { //空の部分について
                     array[m][n] = 1; //そこにコンピュータ球が入ったとして、
-
-
 
                     for (i = 0; i <= 5; i++) { //横
                         for (j = 0; j <= 3; j++) {

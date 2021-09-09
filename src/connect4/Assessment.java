@@ -39,42 +39,66 @@ public class Assessment {
                     theoryscore = theoryscore + 3;
                 }
             }
-            if (array[i][j] == array[i-1][j]){
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+            /*if (array[i][j] == array[i-1][j]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i-2][j]){
                     theoryscore = theoryscore + 3;
                 }
-            }
+            }*/
+        try {
             if (array[i][j] == array[i-1][j+1]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i-2][j+2]){
                     theoryscore = theoryscore + 3;
                 }
             }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+        try {
             if (array[i][j] == array[i][j-1]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i][j-2]){
                     theoryscore = theoryscore + 3;
                 }
             }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+        try {
             if (array[i][j] == array[i][j+1]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i][j+2]){
                     theoryscore = theoryscore + 3;
                 }
             }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+        try {
             if (array[i][j] == array[i+1][j-1]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i+2][j-2]){
                     theoryscore = theoryscore + 3;
                 }
             }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+        try {
             if (array[i][j] == array[i+1][j]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i+2][j]){
                     theoryscore = theoryscore + 3;
                 }
             }
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+        try {
             if (array[i][j] == array[i+1][j+1]){
                 theoryscore = theoryscore + 2;
                 if (array[i][j] == array[i+2][j+2]){
@@ -84,6 +108,7 @@ public class Assessment {
         } catch (IndexOutOfBoundsException e) {
 
         }
+
 
 
 

@@ -36,7 +36,7 @@ public class Main {
 
         while(true) { //4つ並ぶ、またはいっぱいになるまで繰り返し
             //コンピュータの番
-            j = computer.select(array);
+            j = computer.select(array,score);
             for(i=5;i>=0;i--){
                 if (array[i][j]==-1){ //空のとき
                     break;
