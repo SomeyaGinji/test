@@ -111,13 +111,19 @@ public class Assessment {
 
 
 
+        try {
+            if (array[i][j]==0) {
+                score = score + valuearray[i][j] + theoryscore;
+            }
 
-        if (array[i][j]==0) {
-            score = score + valuearray[i][j] + theoryscore;
+            else if (array[i][j]==1){
+                score = score - valuearray[i][j] - theoryscore;
+            }
+
+        } catch (ArrayIndexOutOfBoundsException e){
+
         }
-        else if (array[i][j]==1){
-            score = score - valuearray[i][j] - theoryscore;
-        }
+
         return score;
 
     }

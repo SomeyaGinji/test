@@ -37,7 +37,11 @@ public class Computer {
             ascore[1][j] = assessment.calcscore(i,j,array,score);
             System.out.println(ascore[1][j]);
 
-            array[i][j]=-1;
+            try {
+                array[i][j]=-1;
+            } catch (ArrayIndexOutOfBoundsException e){
+
+            }
         }
 
         int minscore = ascore[1][0];
@@ -156,39 +160,101 @@ public class Computer {
                     }
                 }
 
-                //自分(コンピュータ)がリーチなら勝負を決める
-                if (array[m][n]==-1) { //空の部分について
-                    array[m][n] = 1; //そこにコンピュータ球が入ったとして、
+            }
+        }
 
-                    for (i = 0; i <= 5; i++) { //横
-                        for (j = 0; j <= 3; j++) {
-                            if (array[i][j] == 1 && array[i][j + 1] == 1 && array[i][j + 2] == 1 && array[i][j + 3] == 1) { //横に4つ並んだとき
-                                decidej = n;
+        for(m=0;m<=5;m++) {
+            for (n = 0; n <= 6; n++) {
+                //横バージョン
+                for (i = 0; i <= 5; i++) {
+                    for (j = 0; j <= 3; j++) {
+                        if (array[m][n] == -1) { //空の部分について、
+                            array[m][n] = 1; //そこにコンピュータ球が入ったとして
+                            if (array[i][j] == 1 && array[i][j + 1] == 1 && array[i][j + 2] == 1 && array[i][j + 3] == 1) { //横に4つ並ぶとき
+                                //array[m][n] = -1;
+                                count = 0;
+                                for (int I = 5; I >= m + 1; I--) {
+                                    if (array[I][n] != -1) {
+                                        count++;
+                                    }
+                                }
+                                if (count == 5 - m) {
+                                    decidej = n;
+                                }
                             }
+                            array[m][n] = -1;
                         }
+
                     }
-                    for (i = 0; i <= 2; i++) { //縦
-                        for (j = 0; j <= 6; j++) {
-                            if (array[i][j] == 1 && array[i + 1][j] == 1 && array[i + 2][j] == 1 && array[i + 3][j] == 1) { //縦に4つ並んだとき
-                                decidej = n;
+                }
+
+                //縦バージョン
+                for (i = 0; i <= 2; i++) {
+                    for (j = 0; j <= 6; j++) {
+                        if (array[m][n] == -1) { //空の部分について、
+                            array[m][n] = 0; //そこにコンピュータ球が入ったとして
+                            if (array[i][j] == 1 && array[i + 1][j] == 1 && array[i + 2][j] == 1 && array[i + 3][j] == 1) { //縦に4つ並ぶとき
+                                //array[m][n] = -1;
+                                count = 0;
+                                for (int I = 5; I >= m + 1; I--) {
+                                    if (array[I][n] != -1) {
+                                        count++;
+                                    }
+                                }
+                                if (count == 5 - m) {
+                                    decidej = n;
+                                }
                             }
+                            array[m][n] = -1;
                         }
+
                     }
-                    for (i = 0; i <= 2; i++) { //斜め右肩下がり
-                        for (j = 0; j <= 3; j++) {
-                            if (array[i][j] == 1 && array[i + 1][j + 1] == 1 && array[i + 2][j + 2] == 1 && array[i + 3][j + 3] == 1) { //斜め（右肩下がり）に4つ並んだとき
-                                decidej = n;
+                }
+
+                //斜め（右肩下がり）バージョン
+                for (i = 0; i <= 2; i++) {
+                    for (j = 0; j <= 3; j++) {
+                        if (array[m][n] == -1) { //空の部分について、
+                            array[m][n] = 1; //そこにコンピュータ球が入ったとして
+                            if (array[i][j] == 1 && array[i + 1][j + 1] == 1 && array[i + 2][j + 2] == 1 && array[i + 3][j + 3] == 1) { //斜め（右肩下がり）に4つ並ぶとき
+                                //array[m][n] = -1;
+                                count = 0;
+                                for (int I = 5; I >= m + 1; I--) {
+                                    if (array[I][n] != -1) {
+                                        count++;
+                                    }
+                                }
+                                if (count == 5 - m) {
+                                    decidej = n;
+                                }
                             }
+                            array[m][n] = -1;
                         }
+
                     }
-                    for (i = 3; i <= 5; i++) { //右肩上がり
-                        for (j = 0; j <= 3; j++) {
-                            if (array[i][j] == 1 && array[i - 1][j + 1] == 1 && array[i - 2][j + 2] == 1 && array[i - 3][j + 3] == 1) { //斜め（右肩上がり）に4つ並んだとき
-                                decidej = n;
+                }
+
+                //斜め（右肩上がり）バージョン
+                for (i = 3; i <= 5; i++) {
+                    for (j = 0; j <= 3; j++) {
+                        if (array[m][n] == -1) { //空の部分について、
+                            array[m][n] = 1; //そこにコンピュータ球が入ったとして
+                            if (array[i][j] == 1 && array[i - 1][j + 1] == 1 && array[i - 2][j + 2] == 1 && array[i - 3][j + 3] == 1) { //斜め（右肩上がり）に4つ並ぶとき
+                                //array[m][n] = -1;
+                                count = 0;
+                                for (int I = 5; I >= m + 1; I--) { //調べてる所に球を入れることは可能か調べる
+                                    if (array[I][n] != -1) {
+                                        count++;
+                                    }
+                                }
+                                if (count == 5 - m) {
+                                    decidej = n;
+                                }
                             }
+                            array[m][n] = -1;
                         }
+
                     }
-                    array[m][n]=-1; //空の状態に戻す
                 }
 
             }
@@ -201,6 +267,10 @@ public class Computer {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+
+        if (decidej==-1){
+            decidej=0;
         }
 
         return decidej;
